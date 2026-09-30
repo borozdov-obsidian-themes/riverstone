@@ -1,0 +1,542 @@
+/*
+  Borozdov Riverstone — an Obsidian theme from the Borozdov collection.
+  Two faces: light Millpond, a still cream sanctuary where graphite ink
+  rests in a pool of amber light, and dark Streambed, the same room after
+  the light drains to the bottom of the water. One warm accent — amber —
+  carries every link, toggle and checked box; nothing else in the chrome
+  takes a hue.
+  https://github.com/borozdov-obsidian-themes/riverstone
+
+  License: MIT (this file). No embedded fonts.
+*/
+
+/* ===== 1. PALETTE =====
+   Only these values differ by face. Linen canvas, a bone-white card one
+   step up, graphite ink for running text. Amber is the single accent —
+   the light pooled under the object — carried by links, the toggle and
+   the checked box; nothing else in the chrome takes a hue. */
+
+.theme-light {
+  color-scheme: light;
+
+  --canvas: #fcf9f7;
+  --surface: #f6f1ec;
+  --card: #fff;
+  --inset: #ece5dc;
+  --hover: #f2ece3;
+  --hairline: #e6ded2;
+  --strong: #d8cfc1;
+  --tertiary: #8c8579;
+  --slate: #5c5650;
+  --ink: #000;
+  --amber: #8a5a2c;
+  --amber-hover: #6b4a26;
+  --on-amber: var(--canvas);
+  --mark: rgb(138 90 44 / 20%);
+  --on-mark: #000;
+  --veil: rgb(138 90 44 / 10%);
+  --scrim: rgb(0 0 0 / 40%);
+  --float: 0 12px 32px rgb(0 0 0 / 8%);
+  --accent-h: 29;
+  --accent-s: 52%;
+  --accent-l: 36%;
+  --color-red: #b42318;
+  --color-orange: #a15316;
+  --color-yellow: #8a6a00;
+  --color-green: #2f6b3f;
+  --color-cyan: #1f6e73;
+  --color-blue: #2a5f9e;
+  --color-purple: #6249b0;
+  --color-pink: #a13a67;
+  --color-red-rgb: 180, 35, 24;
+  --color-orange-rgb: 161, 83, 22;
+  --color-yellow-rgb: 138, 106, 0;
+  --color-green-rgb: 47, 107, 63;
+  --color-cyan-rgb: 31, 110, 115;
+  --color-blue-rgb: 42, 95, 158;
+  --color-purple-rgb: 98, 73, 176;
+  --color-pink-rgb: 161, 58, 103;
+  --callout-quote: var(--slate);
+  --code-comment: var(--tertiary);
+  --code-function: var(--color-blue);
+  --code-keyword: var(--color-orange);
+  --code-operator: var(--slate);
+  --code-property: var(--color-cyan);
+  --code-punctuation: var(--slate);
+  --code-string: var(--color-green);
+  --code-tag: var(--color-pink);
+  --code-value: var(--color-purple);
+  --code-important: var(--color-red);
+}
+
+.theme-dark {
+  color-scheme: dark;
+
+  --canvas: #110f0c;
+  --surface: #1a1611;
+  --card: #1a1611;
+  --inset: #0c0a08;
+  --hover: #211c16;
+  --hairline: #362f26;
+  --strong: #4a4038;
+  --tertiary: #8a8177;
+  --slate: #b8ae9e;
+  --ink: #f7f2ea;
+  --amber: #d9a15a;
+  --amber-hover: #e6b478;
+  --on-amber: #110f0c;
+  --mark: #4a3018;
+  --on-mark: #f7f2ea;
+  --veil: rgb(217 161 90 / 18%);
+  --scrim: rgb(0 0 0 / 60%);
+  --float: 0 12px 32px rgb(0 0 0 / 45%);
+  --accent-h: 33;
+  --accent-s: 63%;
+  --accent-l: 60%;
+  --color-red: #ff9c8f;
+  --color-orange: #ffbd82;
+  --color-yellow: #e8cf7a;
+  --color-green: #8fd6a8;
+  --color-cyan: #7ed3de;
+  --color-blue: #9dc4ff;
+  --color-purple: #c3b3ff;
+  --color-pink: #f2a8c9;
+  --color-red-rgb: 255, 156, 143;
+  --color-orange-rgb: 255, 189, 130;
+  --color-yellow-rgb: 232, 207, 122;
+  --color-green-rgb: 143, 214, 168;
+  --color-cyan-rgb: 126, 211, 222;
+  --color-blue-rgb: 157, 196, 255;
+  --color-purple-rgb: 195, 179, 255;
+  --color-pink-rgb: 242, 168, 201;
+  --callout-quote: var(--slate);
+  --code-comment: var(--tertiary);
+  --code-function: var(--color-blue);
+  --code-keyword: var(--color-orange);
+  --code-operator: var(--slate);
+  --code-property: var(--color-cyan);
+  --code-punctuation: var(--slate);
+  --code-string: var(--color-green);
+  --code-tag: var(--color-pink);
+  --code-value: var(--color-purple);
+  --code-important: var(--color-red);
+}
+
+/* ===== 2. TYPE & SHAPE =====
+   The platform's own sans, unhurried: 400 for prose, 600 lifting
+   headings and the one filled button. Soft 12–20px corners everywhere
+   a card meets the canvas; a flatter 8px where a field meets the hand. */
+
+body {
+  --font-interface-theme: -apple-system, "BlinkMacSystemFont", "Segoe UI",
+    "Roboto", "Helvetica Neue", "Arial", sans-serif;
+  --font-text-theme: -apple-system, "BlinkMacSystemFont", "Segoe UI",
+    "Roboto", "Helvetica Neue", "Arial", sans-serif;
+  --font-monospace-theme: "SFMono-Regular", "SF Mono", "JetBrains Mono",
+    ui-monospace, "Menlo", "Consolas", monospace;
+  --line-height-normal: 1.6;
+  --bold-weight: 600;
+  --radius-s: 8px;
+  --radius-m: 12px;
+  --radius-l: 16px;
+  --radius-xl: 20px;
+  --input-radius: 8px;
+  --button-radius: 12px;
+  --checkbox-radius: 5px;
+  --checkbox-color: var(--amber);
+  --checkbox-color-hover: var(--amber-hover);
+  --checkbox-marker-color: var(--on-amber);
+  --input-shadow: none;
+  --input-shadow-hover: none;
+  --h1-size: 2em; --h2-size: 1.5em; --h3-size: 1.25em;
+  --h4-size: 1.05em; --h5-size: 1em; --h6-size: 0.9em;
+  --h1-weight: 600; --h2-weight: 600; --h3-weight: 600;
+  --h4-weight: 600; --h5-weight: 500; --h6-weight: 500;
+  --inline-title-size: 2.4em;
+  --inline-title-weight: 600;
+  --h1-line-height: 1.15; --h2-line-height: 1.2; --h3-line-height: 1.3;
+  --h4-line-height: 1.35; --h5-line-height: 1.4; --h6-line-height: 1.4;
+  --inline-title-color: var(--ink);
+  --h1-color: var(--ink); --h2-color: var(--ink); --h3-color: var(--ink);
+  --h4-color: var(--ink); --h5-color: var(--slate); --h6-color: var(--tertiary);
+}
+
+.inline-title,
+.markdown-rendered h1, .markdown-source-view.mod-cm6 .cm-header-1 {
+  letter-spacing: -0.012em;
+}
+
+.markdown-rendered h2, .markdown-rendered h3,
+.markdown-source-view.mod-cm6 .cm-header-2,
+.markdown-source-view.mod-cm6 .cm-header-3 {
+  letter-spacing: -0.008em;
+}
+
+/* ===== 3. BASE VARIABLE MAPPING =====
+   Set on .theme-dark / .theme-light, where Obsidian declares them too;
+   the theme loads later and wins the tie. */
+
+.theme-dark,
+.theme-light {
+  --background-primary: var(--canvas);
+  --background-primary-alt: var(--surface);
+  --background-secondary: var(--surface);
+  --background-secondary-alt: var(--canvas);
+  --background-modifier-hover: var(--hover);
+  --background-modifier-active-hover: var(--hover);
+  --background-modifier-border: var(--hairline);
+  --background-modifier-border-hover: var(--strong);
+  --background-modifier-border-focus: var(--amber);
+  --background-modifier-form-field: var(--canvas);
+  --text-normal: var(--ink);
+  --text-muted: var(--slate);
+  --text-faint: var(--tertiary);
+  --text-accent: var(--amber);
+  --text-accent-hover: var(--amber-hover);
+  --text-on-accent: var(--on-amber);
+  --text-on-accent-inverted: var(--on-amber);
+  --text-selection: var(--veil);
+  --text-highlight-bg: var(--mark);
+  --color-accent: var(--amber);
+  --color-accent-1: var(--amber);
+  --color-accent-2: var(--amber-hover);
+  --interactive-accent: var(--amber);
+  --interactive-accent-hover: var(--amber-hover);
+  --interactive-normal: var(--canvas);
+  --interactive-hover: var(--hover);
+  --divider-color: var(--hairline);
+  --caret-color: var(--amber);
+  --tab-container-background: var(--surface);
+  --titlebar-background: var(--surface);
+  --titlebar-background-focused: var(--surface);
+  --ribbon-background: var(--surface);
+  --ribbon-background-collapsed: var(--canvas);
+  --status-bar-background: var(--surface);
+  --nav-item-background-hover: var(--hover);
+  --nav-item-background-active: var(--canvas);
+  --nav-item-color-active: var(--amber);
+  --nav-item-background-selected: var(--hover);
+  --nav-item-color-selected: var(--ink);
+  --nav-indentation-guide-color: var(--hairline);
+  --callout-default: var(--amber);
+  --callout-info: var(--amber);
+  --callout-todo: var(--amber);
+  --callout-summary: var(--color-cyan);
+  --callout-tip: var(--color-cyan);
+  --callout-important: var(--color-purple);
+  --callout-success: var(--color-green);
+  --callout-question: var(--color-yellow);
+  --callout-warning: var(--color-yellow);
+  --callout-fail: var(--color-red);
+  --callout-error: var(--color-red);
+  --callout-bug: var(--color-red);
+  --callout-example: var(--color-purple);
+}
+
+/* The active tab reads as the light pooling under the open file: an
+   amber underline, the way the open row in the sidebar carries amber
+   text. */
+.workspace-tab-header.is-active .workspace-tab-header-inner {
+  border-radius: 0;
+  box-shadow: inset 0 -2px 0 var(--amber);
+}
+
+.mod-left-split .workspace-tab-header.is-active .workspace-tab-header-inner,
+.mod-right-split .workspace-tab-header.is-active .workspace-tab-header-inner {
+  border-radius: var(--tab-radius);
+  box-shadow: none;
+}
+
+.nav-file-title.is-active {
+  font-weight: 600;
+}
+
+/* Streambed keeps the highlighter opaque: a translucent amber wash reads
+   fine on cream but turns a muddy olive over a dark page. */
+.markdown-rendered mark,
+.markdown-rendered mark .internal-link,
+.cm-s-obsidian span.cm-formatting-highlight,
+.cm-s-obsidian span.cm-highlight:not(.obsidian-search-match-highlight) {
+  color: var(--on-mark);
+}
+
+.markdown-rendered mark {
+  border-radius: 4px;
+  padding: 0.05em 0.25em;
+}
+
+/* Millpond's white toggle thumb all but disappears against its own pale
+   track; Streambed's default white thumb already has the contrast it
+   needs against the dark one. */
+.theme-light { --toggle-thumb-color: var(--ink); }
+.theme-dark { --toggle-thumb-color: var(--canvas); }
+
+/* ===== 4. LINKS ===== */
+
+body {
+  --link-color: var(--amber);
+  --link-color-hover: var(--amber-hover);
+  --link-external-color: var(--amber);
+  --link-external-color-hover: var(--amber-hover);
+  --link-decoration: none;
+  --link-decoration-hover: underline;
+  --link-external-decoration: none;
+  --link-external-decoration-hover: underline;
+  --link-unresolved-color: var(--amber);
+  --link-unresolved-opacity: 0.65;
+  --link-unresolved-decoration-style: dotted;
+}
+
+/* ===== 5. CALLOUTS =====
+   A bone-white card one step off the linen canvas, 16px corners, no
+   rim — the title carries the type's own colour, app.css mixes it into
+   the tinted plate beneath. */
+
+body {
+  --callout-border-width: 0;
+  --callout-radius: 16px;
+  --callout-padding: 1rem 1.25rem;
+  --callout-title-weight: 600;
+  --callout-content-padding: 0.4rem 0 0;
+  --callout-blend-mode: normal;
+}
+
+.callout {
+  background-color: var(--card);
+}
+
+.callout-content > :first-child { margin-top: 0; }
+.callout-content > :last-child { margin-bottom: 0; }
+
+/* ===== 6. CODE ===== */
+
+body {
+  --code-background: var(--inset);
+  --code-normal: var(--ink);
+  --code-radius: 8px;
+  --code-border-width: 0;
+}
+
+.markdown-rendered pre {
+  border-radius: 12px;
+}
+
+.token.keyword, .cm-keyword { font-weight: 500; }
+.token.comment, .cm-comment { font-style: italic; }
+
+/* ===== 7. BLOCKQUOTE ===== */
+
+body {
+  --blockquote-border-thickness: 2px;
+  --blockquote-border-color: var(--amber);
+  --blockquote-color: var(--slate);
+  --blockquote-font-style: italic;
+}
+
+/* ===== 8. TAGS =====
+   Pills, transparent until touched; amber marks the one under the
+   pointer. */
+
+body {
+  --tag-size: 0.78em;
+  --tag-weight: 500;
+  --tag-radius: 9999px;
+  --tag-padding-x: 0.6em;
+  --tag-padding-y: 0.2em;
+  --tag-border-width: 1px;
+  --tag-color: var(--slate);
+  --tag-color-hover: var(--amber);
+  --tag-background: transparent;
+  --tag-background-hover: var(--veil);
+  --tag-border-color: var(--strong);
+  --tag-border-color-hover: var(--amber);
+  --tag-decoration-hover: none;
+}
+
+/* ===== 9. TABLES ===== */
+
+body {
+  --table-border-width: 1px;
+  --table-column-first-border-width: 0;
+  --table-column-last-border-width: 0;
+  --table-header-border-width: 0;
+  --table-row-last-border-width: 0;
+  --table-border-color: var(--hairline);
+  --table-header-background: var(--surface);
+  --table-header-background-hover: var(--hover);
+  --table-header-border-color: var(--hairline);
+  --table-header-size: 0.75em;
+  --table-header-weight: 600;
+  --table-header-color: var(--slate);
+  --table-row-background-hover: var(--surface);
+  --table-row-alt-background: transparent;
+  --table-row-alt-background-hover: var(--surface);
+}
+
+.markdown-rendered table {
+  background-color: var(--canvas);
+  border: var(--table-border-width) solid var(--table-border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* The frame belongs to the table so it follows the corners; cells draw only
+   the inner grid, an end and a bottom line, none on the outer edges. */
+.markdown-rendered th,
+.markdown-rendered td {
+  border-block-start-width: 0;
+  border-inline-start-width: 0;
+}
+
+.markdown-rendered tr > :last-child {
+  border-inline-end-width: 0;
+}
+
+.markdown-rendered table > :last-child > tr:last-child > * {
+  border-block-end-width: 0;
+}
+
+.markdown-rendered td, .markdown-rendered th {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===== 10. BUTTONS =====
+   A card-toned button with a strong rim; the one that matters fills
+   graphite ink, the object resting in its own pool of light. The copy
+   button on a code block keeps Obsidian's own quiet icon. */
+
+button:not(.clickable-icon, .copy-code-button) {
+  background-color: var(--card);
+  border: 1px solid var(--strong);
+  border-radius: var(--button-radius);
+  box-shadow: none;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+@media (hover: hover) {
+  button:not(.clickable-icon, .copy-code-button):hover {
+    background-color: var(--hover);
+    border-color: var(--amber);
+  }
+}
+
+button.mod-cta:not(.clickable-icon, .copy-code-button) {
+  background-color: var(--ink);
+  border-color: var(--ink);
+  color: var(--canvas);
+  font-weight: 600;
+}
+
+@media (hover: hover) {
+  button.mod-cta:not(.clickable-icon, .copy-code-button):hover {
+    background-color: var(--amber);
+    border-color: var(--amber);
+    color: var(--on-amber);
+  }
+}
+
+button.mod-warning:not(.clickable-icon, .copy-code-button) {
+  background-color: var(--color-red);
+  border-color: var(--color-red);
+  color: var(--canvas);
+}
+
+/* ===== 11. FIELDS & PROPERTIES ===== */
+
+select.dropdown, input[type="text"], input[type="search"], input[type="number"],
+textarea {
+  /* background-color, not the `background` shorthand: the shorthand resets
+     the dropdown's own arrow image. */
+  background-color: var(--background-modifier-form-field);
+  border: 1px solid var(--strong);
+}
+
+/* No focus ring while typing: the caret and the selection already show
+   where you are. Covers form fields and every contenteditable surface. */
+select.dropdown:focus, input:focus, textarea:focus,
+select.dropdown:focus-visible, input:focus-visible, textarea:focus-visible,
+[contenteditable]:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+/* A property's key is a label, not a field. input.* matches the frame rule
+   above at (0,1,1), so the element prefix is needed to win it. */
+input.metadata-property-key-input {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  color: var(--slate);
+}
+
+body {
+  --pill-background: var(--surface);
+  --pill-background-hover: var(--veil);
+  --pill-border-color: transparent;
+  --pill-border-color-hover: transparent;
+  --pill-color: var(--slate);
+  --pill-color-hover: var(--amber);
+}
+
+/* ===== 12. SURFACES =====
+   Flat by tone; only floating panels lift, the same whisper-quiet shadow
+   the style card gives its own elevated cards. */
+
+.modal-bg {
+  background-color: var(--scrim);
+}
+
+.modal, .menu, div.popover, .suggestion-container, .prompt {
+  background-color: var(--canvas);
+  border: 1px solid var(--hairline);
+  border-radius: 16px;
+  box-shadow: var(--float);
+}
+
+/* Obsidian pads an embed only on the left, for an accent bar this theme
+   doesn't draw. Even padding all round, with room for the open-link icon. */
+body {
+  --embed-padding: var(--size-4-3) var(--size-4-8) var(--size-4-3) var(--size-4-4);
+  --embed-border-start: none;
+}
+
+.markdown-embed {
+  background-color: var(--card);
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
+}
+
+/* A hover preview is already a panel: the embed inside it stays flat. */
+.popover.hover-popover > .markdown-embed {
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+hr, .cm-hr { border-color: var(--hairline); }
+
+/* ===== 13. MOBILE =====
+   The phone layout re-declares tag and field colors on .is-mobile.theme-*,
+   outranking the rules above; the same selectors bring them back. */
+
+.is-mobile.theme-dark,
+.is-mobile.theme-light {
+  --tag-background: transparent;
+  --background-modifier-form-field: var(--canvas);
+  --background-modifier-hover: var(--hover);
+}
+
+/* ===== 14. REDUCED MOTION ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    --anim-duration-superfast: 0s;
+    --anim-duration-fast: 0s;
+    --anim-duration-moderate: 0s;
+    --anim-duration-slow: 0s;
+  }
+}
