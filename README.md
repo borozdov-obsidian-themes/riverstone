@@ -42,10 +42,14 @@ carries every link, toggle and checked box; nothing else in the chrome takes a h
 
 ## Installation
 
-**From the community directory:** Settings → Appearance → Themes → Manage, search for
-**Borozdov Riverstone**, then **Install and use**.
+**From the community directory, as a variant:** this theme ships inside **Borozdov
+Trellis**. Install Borozdov Trellis under Settings → Appearance → Themes → Manage, then
+the [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) plugin, and
+choose **Riverstone** under Style Settings → Borozdov Trellis → Variant. The variant
+brings this theme's palette, type and corners; its own layout, and its embedded font if it
+has one, come with the full theme below.
 
-**By hand:** download `manifest.json` and `theme.css` from the
+**The full theme, by hand:** download `manifest.json` and `theme.css` from the
 [latest release](https://github.com/borozdov-obsidian-themes/riverstone/releases/latest)
 into `<vault>/.obsidian/themes/Borozdov Riverstone/`, then choose Borozdov Riverstone under
 Settings → Appearance → Themes.
@@ -60,5 +64,4 @@ MIT — see [LICENSE](LICENSE).
 святилище, где графитовые чернила отдыхают в лужице янтарного света, и тёмный
 «Streambed» — та же комната после того, как свет ушёл на дно воды. Единственный тёплый
 акцент — янтарь — несёт на себе ссылки, переключатель и отмеченную галочку. Шрифты не
-встроены. Устанавливается из каталога: Настройки → Оформление → Темы → Настроить →
-Borozdov Riverstone → Установить и применить.
+встроены. В каталоге тема живёт вариантом Borozdov Trellis: установите Borozdov Trellis и плагин Style Settings, затем выберите Riverstone в Style Settings → Borozdov Trellis → Variant. Целиком, со своей вёрсткой, тема ставится вручную из последнего релиза репозитория.
